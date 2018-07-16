@@ -1,0 +1,2 @@
+# mcorporate
+Wordpress corporate theme
