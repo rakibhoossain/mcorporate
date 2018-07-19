@@ -33,7 +33,7 @@ bower_components
 build/Release
 
 # lock-packege
-package-lock
+package-lock.json
 
 # Dependency directories
 node_modules/

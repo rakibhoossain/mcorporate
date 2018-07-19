@@ -26,6 +26,11 @@ require get_template_directory() . '/inc/widgets.php';
 require get_template_directory() . '/inc/enqueue.php';
 
 /**
+ * mega menu.
+ */
+require get_template_directory() . '/inc/mega-menu.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

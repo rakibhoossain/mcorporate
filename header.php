@@ -32,6 +32,10 @@ $container = get_theme_mod( 'mcorporate_container_type' );
 
 		<a class="skip-link screen-reader-text sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'mcorporate' ); ?></a>
 
+<?php if ( function_exists('max_mega_menu_is_enabled') && max_mega_menu_is_enabled('primary') ) : ?>
+	<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
+<?php else: ?>
+
 		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
 
 		<?php if ( 'container' == $container ) : ?>
@@ -56,6 +60,12 @@ $container = get_theme_mod( 'mcorporate_container_type' );
 						the_custom_logo();
 					} ?><!-- end custom logo -->
 
+
+
+
+
+
+
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -73,10 +83,42 @@ $container = get_theme_mod( 'mcorporate_container_type' );
 						'walker'          => new Mcorporate_WP_Bootstrap_Navwalker(),
 					)
 				); ?>
+
+
 			<?php if ( 'container' == $container ) : ?>
 			</div><!-- .container -->
 			<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
-
+<?php endif; ?>
 	</div><!-- #wrapper-navbar end -->
+
+
+		<?php 
+$stick = '';
+$navID = 'main-nav';
+
+		?>
+			<nav id="<?php echo $navID; ?>"<?php echo $stick; ?>>
+				<div class="container">
+
+				Logo
+
+					<?php wp_nav_menu( 
+							array(
+									'container_class' => 'main-menu',
+									'theme_location' => 'primary',
+									'walker' => new tie_mega_menu_walker(),
+									'fallback_cb'=> false
+								)
+							);
+						?>
+
+
+					<?php if( function_exists( 'is_woocommerce' ) ):
+						global $woocommerce; ?>
+						<a class="tie-cart ttip" href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _eti( 'View your shopping cart' ); ?>"><span class="shooping-count-outer"><?php if( isset( $woocommerce->cart->cart_contents_count ) && ( $woocommerce->cart->cart_contents_count != 0 ) ){ ?><span class="shooping-count"><?php echo $woocommerce->cart->cart_contents_count ?></span><?php } ?><i class="fa fa-shopping-cart"></i></span></a>
+					<?php endif ?>
+
+				</div>
+			</nav><!-- .main-nav /-->

@@ -25,7 +25,7 @@ if ( ! function_exists ( 'mcorporate_pagination' ) ) {
 
         ?>
 
-        <nav aria-label="<?php echo $args['screen_reader_text']; ?>">
+        <nav aria-label="<?php echo esc_attr($args['screen_reader_text']); ?>">
 
             <ul class="pagination">
 

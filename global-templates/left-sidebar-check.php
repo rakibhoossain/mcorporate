@@ -24,7 +24,7 @@ $sidebar_pos = get_theme_mod( 'mcorporate_sidebar_position' );
 		} else {
 			$html .= 'col-md-12 content-area" id="primary">';
 		}
-		echo $html; // WPCS: XSS OK.
+		echo wp_kses_post( $html ); // WPCS: XSS OK.
 	} elseif ( 'both' === $sidebar_pos ) {
 		$html = '<div class="';
 		if ( is_active_sidebar( 'right-sidebar' ) && is_active_sidebar( 'left-sidebar' ) ) {
@@ -34,7 +34,7 @@ $sidebar_pos = get_theme_mod( 'mcorporate_sidebar_position' );
 		} else {
 			$html .= 'col-md-12 content-area" id="primary">';
 		}
-		echo $html; // WPCS: XSS OK.
+		echo wp_kses_post( $html ); // WPCS: XSS OK.
 	} else {
 	    echo '<div class="col-md-12 content-area" id="primary">';
 	}

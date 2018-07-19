@@ -32,7 +32,7 @@ $container = get_theme_mod( 'mcorporate_container_type' );
 					
 							<?php printf( // WPCS: XSS ok.
 							/* translators:*/
-								esc_html__( 'Theme: %1$s by %2$s.', 'mcorporate' ), $the_theme->get( 'Name' ),  '<a href="'.esc_url( __('http://mcorporate.com', 'mcorporate')).'">mcorporate.com</a>' ); ?> 
+								esc_html__( 'Theme: %1$s by %2$s.', 'mcorporate' ), $the_theme->get( 'Name' ),  '<a href="'.esc_url( __('http://rakib.ooo', 'mcorporate')).'">mcorporate.com</a>' ); ?> 
 				
 							(<?php printf( // WPCS: XSS ok.
 							/* translators:*/
